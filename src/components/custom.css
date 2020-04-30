@@ -1,0 +1,16 @@
+body {
+        word-wrap:break-word;
+}
+.profileFormhidden{
+    visibility: hidden;
+    opacity: 0;
+    height: 0px;
+    transition: visibility 0s linear 300ms, opacity 300ms, height 300ms;
+}
+
+.profileForm{
+    visibility: visible;
+    height:40px;
+    opacity: 1;
+    transition: visibility 0s linear 0s, opacity 300ms, height 300ms;
+}
