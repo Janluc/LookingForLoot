@@ -44,8 +44,6 @@ export default class UserProfile extends Component
             }
         })
     }
-    
-    useEffect()
 
     setEdit                 = ()  => this.setState({editMode:true})
     onChangeInGameName      = (e) => this.setState({inGameName: e.target.value})
