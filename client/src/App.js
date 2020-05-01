@@ -9,7 +9,7 @@ import LoginComponent   from "./components/login.component"
 import landingComponent from "./components/landing.component"
 import userList         from "./components/userList.component"
 import userCreate       from "./components/userCreate.component"
-import userProfile      from "./components/userProfile.component.jsx"
+import userProfile      from "./components/userProfile.component"
 
 
 
