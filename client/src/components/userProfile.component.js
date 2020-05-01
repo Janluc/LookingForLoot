@@ -24,8 +24,9 @@ export default class UserProfile extends Component
         }
     }
 
-    async componentDidMount()
+    componentDidMount()
     {
+        console.log("testing mount")
         axios.get("/users/" + this.props.match.params.id)
         .then(res => 
         {
