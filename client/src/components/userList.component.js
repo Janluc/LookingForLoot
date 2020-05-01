@@ -27,7 +27,7 @@ export default class UserList extends Component
 
     componentDidMount()
     {
-        axios.get("http://localhost:5000/users/")
+        axios.get("/users/")
         .then(res => 
         {
             if (res.status === 200)

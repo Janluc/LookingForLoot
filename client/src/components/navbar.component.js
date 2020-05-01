@@ -14,7 +14,7 @@ export default class Navbar extends Component
 
     onLogout = (e) => 
     {
-        axios.get("http://localhost:5000/users/logout")
+        axios.get("/users/logout")
         .then(res => 
         {
             if (res.status === 200)
