@@ -32,7 +32,9 @@
     "startbootstrap-scrolling-nav": "^4.2.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "server": "node server.js",
+    "client": "npm start",
+    "start": "concurrently \"node server.js\" \"npm start\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
