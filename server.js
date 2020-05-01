@@ -22,10 +22,6 @@ app.use(express.json());
 app.use(cors())
 
 app.use(express.static(path.join(__dirname, 'client/build')))
-app.get('*', (req, res) => 
-{
-  res.sendFile(path.join(__dirname + '/client/build/index.html'))
-})
 
 app.use(require('./client/node_modules/express-session')(
 {
@@ -42,6 +38,11 @@ passport.deserializeUser(User.deserializeUser());
 
 
 app.use("/users", userRoute);
+
+app.get('*', (req, res) => 
+{
+  res.sendFile(path.join(__dirname + '/client/build/index.html'))
+})
 
 const PORT = process.env.PORT || 5000
 app.listen(PORT, () =>
