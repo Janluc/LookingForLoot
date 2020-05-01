@@ -32,7 +32,7 @@ export default class UserCreate extends Component
             description:    this.state.description,
             typeOfGamer:    this.state.typeOfGamer
         }
-        axios.post("http://localhost:5000/users/new", User)
+        axios.post("/users/new", User)
         .then(res => 
         {
             if(res.status === 200)

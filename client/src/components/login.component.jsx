@@ -30,7 +30,7 @@ export default class Login extends Component
             password: this.state.password
         }
 
-        axios.post("http://localhost:5000/users/login", logIn)
+        axios.post("/users/login", logIn)
         .then(res => 
         {
             if(res.status === 200)

@@ -26,7 +26,7 @@ export default class UserProfile extends Component
 
     componentDidMount()
     {
-        axios.get("http://localhost:5000/users/" + this.props.match.params.id)
+        axios.get("/users/" + this.props.match.params.id)
         .then(res => 
         {
             if (res.status === 200)
