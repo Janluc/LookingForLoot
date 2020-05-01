@@ -27,7 +27,7 @@ export default class UserList extends Component
 
     componentDidMount()
     {
-        axios.get("/users/")
+        axios.get("/users")
         .then(res => 
         {
             if (res.status === 200)
@@ -38,8 +38,7 @@ export default class UserList extends Component
     onChangeGameSearch      = (e) => this.setState({gameSearch: e.target.value})
     onTypeOfGamerSearch     = (e) => this.setState ({typeOfGamer: e.target.value})
     
-    listUsers = () => 
-    {
+    listUsers = () => {
         return this.state.users.map(currentUser => 
         {
             if (currentUser.lfg === true)
