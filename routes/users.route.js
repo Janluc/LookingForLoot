@@ -6,7 +6,7 @@ const passport = require("passport")
 app.get("/", (req, res) => 
 {
     User.find()
-    .then(foundUsers => res.json(foundUsers))
+    .then(foundUsers => res.status(200).json(foundUsers))
     .catch(err => res.redirect('/'))
 })
 
@@ -61,7 +61,7 @@ app.put("/edit/:id", (req, res) =>
     }
 
     User.findByIdAndUpdate(req.params.id, editUser)
-    .then(updatedUser => res.json("edited"))
+    .then(updatedUser => res.status(200).json("edited"))
     .catch(err => 
     {
         console.log(err)
@@ -83,7 +83,7 @@ app.delete("/delete/:id", (req, res) =>
 
 app.get("/:id", (req,res) => 
 {
-    User.findById(req.params.id).populate("preferredGame")
+    User.findById(req.params.id)
     .then(foundUser => res.status(200).json(foundUser))
     .catch(err => 
     {
