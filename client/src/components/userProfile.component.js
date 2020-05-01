@@ -26,7 +26,7 @@ export default class UserProfile extends Component
 
     componentDidMount()
     {
-        axios.get("users/" + this.props.match.params.id)
+        fetch("/users/" + this.props.match.params.id)
         .then(res => 
         {
             
@@ -45,6 +45,8 @@ export default class UserProfile extends Component
         })
     }
     
+    useEffect()
+
     setEdit                 = ()  => this.setState({editMode:true})
     onChangeInGameName      = (e) => this.setState({inGameName: e.target.value})
     onChangeDescription     = (e) => this.setState({description: e.target.value})
