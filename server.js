@@ -1,10 +1,10 @@
 const express = require('express');
 const app = express();
-const mongoose = require('mongoose');
+const mongoose = require('./client/node_modules/mongoose');
 const userRoute = require('./routes/users.route')
 const passport = require('passport');
-const LocalStrategy = require('passport-local')
-const cors = require("cors")
+const LocalStrategy = require('./client/node_modules/passport-local/lib')
+const cors = require("./client/node_modules/cors/lib")
 const User = require("./models/user.model")
 
 mongoose.set('useNewUrlParser', true);
@@ -16,10 +16,16 @@ const databaseURL = process.env.DATABASE_URL || "mongodb://localhost/mmo-databas
 
 mongoose.connect(databaseURL);
 
+app.use(express.static(path.join(__dirname, 'client/build')))
+app.get('*', (req, res) => 
+{
+  res.sendFile(path.join(__dirname + '/client/build/index.html'))
+})
+
 app.use(express.json());
 app.use(cors())
 
-app.use(require('express-session')(
+app.use(require('./client/node_modules/express-session')(
 {
     secret: "This is a secret code!",
     resave: false,
