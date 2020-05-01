@@ -16,10 +16,10 @@ const databaseURL = process.env.DATABASE_URL || "mongodb://localhost/mmo-databas
 
 mongoose.connect(databaseURL);
 
-app.use(express.static(path.join(__dirname, 'client/build')))
+app.use(express.static(path.join(__dirname, '../client/build')))
 app.get('*', (req, res) => 
 {
-  res.sendFile(path.join(__dirname + '/client/build/index.html'))
+  res.sendFile(path.join(__dirname + '../client/build/index.html'))
 })
 
 app.use(express.json());
