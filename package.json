@@ -32,7 +32,7 @@
     "startbootstrap-scrolling-nav": "^4.2.1"
   },
   "scripts": {
-    "start": "react-scripts start && cd backend && npm start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
