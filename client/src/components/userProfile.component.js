@@ -30,9 +30,10 @@ export default class UserProfile extends Component
         axios.get("/users/" + this.props.match.params.id)
         .then(res => 
         {
-            console.log("testing mount")
+            
             if (res.status === 200)
             {
+                console.log("testing mount")
                 this.setState({
                     username:       res.data.username,
                     description:    res.data.profile.description,
