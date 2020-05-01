@@ -35,6 +35,7 @@ export default class Login extends Component
         {
             if(res.status === 200)
             {
+                console.log(res)
                 window.sessionStorage.setItem("isAuthenticated", true)
                 window.sessionStorage.setItem("username", res.data.username )
                 window.sessionStorage.setItem("id", res.data._id)
