@@ -65,7 +65,7 @@ export default class UserProfile extends Component
             lfg:            this.state.lfg
         }
 
-        axios.put("http://localhost:5000/users/edit/" + this.props.match.params.id, User)
+        axios.put("/users/edit/" + this.props.match.params.id, User)
         .then(res => console.log(res.data))
 
         this.setState({formVisible: false})
