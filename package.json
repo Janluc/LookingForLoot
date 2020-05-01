@@ -10,7 +10,6 @@
     "aos": "^3.0.0-beta.6",
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
-    "concurrently": "^5.2.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
@@ -33,9 +32,11 @@
     "startbootstrap-scrolling-nav": "^4.2.1"
   },
   "scripts": {
-    "client": "npm start",
-    "server": "cd backend && node server.js",
-    "start": "concurrently \"npm run server\" \"npm run client\""
+    "start": "cd backend && npm start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "npm install && npm run build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -51,8 +52,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "concurrently": "^5.2.0"
   }
 }
