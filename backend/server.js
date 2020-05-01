@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const userRoute = require('./routes/users.route')
-const gameRoute = require('./routes/games.route')
 const passport = require('passport');
 const LocalStrategy = require('passport-local')
 const cors = require("cors")
@@ -17,13 +16,8 @@ const databaseURL = process.env.DATABASE_URL || "mongodb://localhost/mmo-databas
 
 mongoose.connect(databaseURL);
 
-
-
-
 app.use(express.json());
 app.use(cors())
-
-
 
 app.use(require('express-session')(
 {
@@ -40,7 +34,6 @@ passport.deserializeUser(User.deserializeUser());
 
 
 app.use("/users", userRoute);
-app.use("/games", gameRoute);
 
 app.listen(5000, () =>
 {
