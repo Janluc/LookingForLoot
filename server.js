@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const path = require('path');
 const mongoose = require('./client/node_modules/mongoose');
 const userRoute = require('./routes/users.route')
 const passport = require('passport');
@@ -20,6 +21,12 @@ mongoose.connect(databaseURL);
 app.use(express.json());
 app.use(cors())
 
+app.use(express.static(path.join(__dirname, 'client/build')))
+app.get('*', (req, res) => 
+{
+  res.sendFile(path.join(__dirname + '/client/build/index.html'))
+})
+
 app.use(require('./client/node_modules/express-session')(
 {
     secret: "This is a secret code!",
@@ -36,11 +43,7 @@ passport.deserializeUser(User.deserializeUser());
 
 app.use("/users", userRoute);
 
-app.use(express.static(path.join(__dirname, 'client/build')))
-app.get('*', (req, res) => 
-{
-  res.sendFile(path.join(__dirname + '/client/build/index.html'))
-})
+
 
 
 const PORT = process.env.PORT || 5000
