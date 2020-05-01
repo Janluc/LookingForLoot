@@ -13,8 +13,9 @@ mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
 
+const databaseURL = process.env.DATABASE_URL || "mongodb://localhost/mmo-database2"
 
-mongoose.connect('mongodb://localhost/mmo-database2');
+mongoose.connect(databaseURL);
 
 
 
