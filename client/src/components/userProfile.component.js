@@ -26,10 +26,11 @@ export default class UserProfile extends Component
 
     componentDidMount()
     {
-        console.log("testing mount")
+        
         axios.get("/users/" + this.props.match.params.id)
         .then(res => 
         {
+            console.log("testing mount")
             if (res.status === 200)
             {
                 this.setState({
