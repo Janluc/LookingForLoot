@@ -26,11 +26,9 @@ export default class UserProfile extends Component
 
     componentDidMount()
     {
-        axios.get("/users/" + this.props.match.params.id, {withCredentials:true})
+        axios.get("/users/" + this.props.match.params.id)
         .then(res => 
         {
-            if (res.status === 200)
-            {
                 this.setState({
                     username:       res.data.username,
                     description:    res.data.profile.description,
@@ -39,7 +37,6 @@ export default class UserProfile extends Component
                     preferredGame:  res.data.profile.preferredGame,
                     lfg:            res.data.lfg
                 })
-            }
         })
     }
     
